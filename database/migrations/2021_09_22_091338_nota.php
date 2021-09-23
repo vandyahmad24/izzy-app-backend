@@ -13,7 +13,12 @@ class Nota extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('nota', function (Blueprint $table) {
+            $table->id();
+            $table->integer('no');
+            $table->string('nama');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,7 @@ class Nota extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('nota');
+
     }
 }

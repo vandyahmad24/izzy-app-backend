@@ -13,7 +13,15 @@ class NotaDetail extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('nota_detail', function (Blueprint $table) {
+            $table->id();
+            $table->integer('qty')->default(0);
+            $table->string('nama');
+            $table->integer('harga')->default(0);
+            $table->integer('total')->default(0);
+            $table->integer('nota_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +31,7 @@ class NotaDetail extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('nota_detail');
+
     }
 }

@@ -13,7 +13,14 @@ class Stok extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('stok', function (Blueprint $table) {
+            $table->id();
+            $table->integer('kategori_id');
+            $table->string('nama');
+            $table->string('qty_22')->default(0);
+            $table->string('qty_33')->default(0);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,7 @@ class Stok extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('stok');
+
     }
 }
